@@ -10,11 +10,20 @@ class Post_Controller extends Controller
 {
     public function index()
     {
+        $posts = Post::with(['user', 'category', 'comments'])->orderBy('id', 'desc');
+
+        if (request('search')) {
+            $posts = Post::with(['user', 'category', 'comments'])
+                ->where('judul', 'like', '%' . request('search') . '%')
+                ->orwhere('body', 'like', '%' . request('search') . '%')
+                ->orderBy('id', 'desc');
+        }
+
         return view(
             'index',
             [
                 "title" => "Home",
-                "posts" => Post::with(['user', 'category', 'comments'])->orderBy('id', 'desc')->get()
+                "posts" => $posts->get()
             ]
         );
     }

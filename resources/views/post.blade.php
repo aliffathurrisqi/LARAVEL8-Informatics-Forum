@@ -9,7 +9,7 @@
                             <img src="/img/avatars/blank.png" width="36" height="36" class="rounded-circle me-2"
                                 alt="">
                             <div class="flex-grow-1">
-                                {{-- <small class="float-end text-navy">30m ago</small> --}}
+                                <small class="float-end text-navy">{{ $posts->created_at->diffForHumans() }}</small>
                                 <strong>
                                     <a class="text-dark" href="/post/{{ $posts->id }}">{{ $posts->judul }}</a>
                                 </strong>
