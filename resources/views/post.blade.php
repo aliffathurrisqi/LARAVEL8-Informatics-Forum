@@ -14,7 +14,9 @@
                                     <a class="text-dark" href="/post/{{ $posts['id'] }}">{{ $posts['judul'] }}</a>
                                 </strong>
                                 <br>
-                                <small class="text-muted"><a href="#">{{ $posts->user->name }}</a> - </small>
+                                <small class="text-muted">
+                                    <a href="/profile/{{ $posts->user->id }}">{{ $posts->user->name }}</a> -
+                                </small>
                                 <small class="text-muted">{{ $posts['created_at'] }} WIB - </small>
                                 <small><a href="/categories/{{ $posts->category->id }}"
                                         class="text-primary">{{ $posts->category->name }}</a></small>
@@ -33,15 +35,17 @@
                     </div>
                 </div>
                 <div class="mb-2">Tanggapan</div>
-                @foreach ($posts->comments as $comment)
-                    <div class="card w-75 mb-1">
+                @foreach ($comments as $comment)
+                    <div class="card mb-1">
                         <div class="card-body h-100">
                             <div class="d-flex align-items-start">
                                 <img src="/img/avatars/blank.png" width="36" height="36" class="rounded-circle me-2"
                                     alt="">
                                 <div class="flex-grow-1">
                                     {{-- <small class="float-end text-navy">30m ago</small> --}}
-                                    <small class="text-muted"><a href="/">{{ $comment->user->name }}</a> - </small>
+                                    <small class="text-muted">
+                                        <a href="/profile/{{ $comment->user->id }}">{{ $comment->user->name }}</a> -
+                                    </small>
                                     <small class="text-muted">{{ $comment->created_at }} WIB</small>
                                     <div class="text-muted mt-1 text-justify">
                                         {{ $comment->body }}

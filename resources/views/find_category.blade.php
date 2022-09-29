@@ -20,7 +20,9 @@
                                         <a class="text-dark" href="/post/{{ $post['id'] }}">{{ $post['judul'] }}</a>
                                     </strong>
                                     <br>
-                                    <small class="text-muted"><a href="#">{{ $post->user->name }}</a> - </small>
+                                    <small class="text-muted">
+                                        <a href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a> -
+                                    </small>
                                     <small class="text-muted">{{ $post['created_at'] }} WIB - </small>
                                     <small><a href="/categories/{{ $post->category->id }}"
                                             class="text-primary">{{ $post->category->name }}</a></small>

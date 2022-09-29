@@ -71,6 +71,14 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
+        User::create(
+            [
+                'username' => "5180411329",
+                'name' => "Aprilyani Sanjaya",
+                'password' => md5("5180411329")
+            ]
+        );
+
         Comment::create(
             [
                 'user_id' => 1,

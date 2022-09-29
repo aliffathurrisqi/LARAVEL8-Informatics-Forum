@@ -24,7 +24,8 @@ class Post_Controller extends Controller
             'post',
             [
                 "title" => $post->judul,
-                "posts" => $post
+                "posts" => $post,
+                "comments" => $post->comments()->orderBy('id', 'desc')->get()
             ]
         );
     }

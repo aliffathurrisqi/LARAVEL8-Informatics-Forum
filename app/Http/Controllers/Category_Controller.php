@@ -25,7 +25,7 @@ class Category_Controller extends Controller
             'find_category',
             [
                 "title" => $category->name,
-                "posts" => $category->posts,
+                "posts" => $category->posts()->orderBy('id', 'desc')->get(),
                 "category" => $category
             ]
         );

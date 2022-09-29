@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Post_Controller;
 use App\Http\Controllers\Category_Controller;
+use App\Http\Controllers\User_Controller;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 
@@ -23,3 +24,5 @@ Route::get('/post/{post:id}', [Post_Controller::class, 'show']);
 Route::get('/categories', [Category_Controller::class, 'index']);
 
 Route::get('/categories/{category:id}', [Category_Controller::class, 'show']);
+
+Route::get('/profile/{user:id}', [User_Controller::class, 'show']);
