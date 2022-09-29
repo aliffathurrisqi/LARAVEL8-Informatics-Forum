@@ -9,7 +9,7 @@
                 </h5>
                 <?php $jml = count($posts); ?>
                 @foreach ($posts as $post)
-                    <div class="card mb-2">
+                    <div class="card mb-1">
                         <div class="card-body h-100">
                             <div class="d-flex align-items-start">
                                 <img src="/img/avatars/blank.png" width="36" height="36" class="rounded-circle me-2"
@@ -17,13 +17,13 @@
                                 <div class="flex-grow-1">
                                     {{-- <small class="float-end text-navy">30m ago</small> --}}
                                     <strong>
-                                        <a class="text-dark" href="/post/{{ $post['id'] }}">{{ $post['judul'] }}</a>
+                                        <a class="text-dark" href="/post/{{ $post->id }}">{{ $post->judul }}</a>
                                     </strong>
                                     <br>
                                     <small class="text-muted">
-                                        <a href="/profile/{{ $post->user->id }}">{{ $post->user->name }}</a> -
+                                        <a href="/profile/{{ $post->user->username }}">{{ $post->user->name }}</a> -
                                     </small>
-                                    <small class="text-muted">{{ $post['created_at'] }} WIB - </small>
+                                    <small class="text-muted">{{ $post->created_at->format('d M Y H:i') }} WIB - </small>
                                     <small><a href="/categories/{{ $post->category->id }}"
                                             class="text-primary">{{ $post->category->name }}</a></small>
 

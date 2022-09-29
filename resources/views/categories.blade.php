@@ -10,7 +10,8 @@
                             @foreach ($categories as $category)
                                 <li>
                                     <h4><a href="categories/{{ $category['id'] }}">{{ $category->name }}
-                                            ({{ count($category->posts) }} Tulisan)</a>
+                                            ({{ count($category->posts) }})
+                                        </a>
                                     </h4>
                                 </li>
                             @endforeach

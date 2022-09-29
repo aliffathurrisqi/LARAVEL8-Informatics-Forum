@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Comment;
 
 class Post_Controller extends Controller
 {
@@ -13,7 +14,7 @@ class Post_Controller extends Controller
             'index',
             [
                 "title" => "Home",
-                "posts" => Post::orderBy('id', 'desc')->get()
+                "posts" => Post::with(['user', 'category', 'comments'])->orderBy('id', 'desc')->get()
             ]
         );
     }
@@ -24,8 +25,8 @@ class Post_Controller extends Controller
             'post',
             [
                 "title" => $post->judul,
-                "posts" => $post,
-                "comments" => $post->comments()->orderBy('id', 'desc')->get()
+                "posts" => $post->load(['user', 'category']),
+                "comments" => Comment::where('post_id', $post->id)->with('user', 'posts')->orderBy('id', 'desc')->get()
             ]
         );
     }

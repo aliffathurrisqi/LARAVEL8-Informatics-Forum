@@ -14,7 +14,7 @@ class Category_Controller extends Controller
             'categories',
             [
                 "title" => "Kategori",
-                "categories" => Category::all()
+                "categories" => Category::with('posts')->get()
             ]
         );
     }
@@ -25,7 +25,8 @@ class Category_Controller extends Controller
             'find_category',
             [
                 "title" => $category->name,
-                "posts" => $category->posts()->orderBy('id', 'desc')->get(),
+                "posts" => Post::where('category_id', $category->id)->with('user', 'category', 'comments')->orderBy('id', 'desc')->get(),
+                // 'posts' => $category->posts->load('user', 'category', 'comments'),
                 "category" => $category
             ]
         );

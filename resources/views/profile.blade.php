@@ -36,7 +36,7 @@
                                     </strong>
                                     <br>
                                     <small class="text-muted"><a href="#">{{ $post->user->name }}</a> - </small>
-                                    <small class="text-muted">{{ $post->created_at }} WIB - </small>
+                                    <small class="text-muted">{{ $post->created_at->format('d M Y H:i') }} WIB - </small>
                                     <small><a href="/categories/{{ $post->category->id }}"
                                             class="text-primary">{{ $post->category->name }}</a></small>
 

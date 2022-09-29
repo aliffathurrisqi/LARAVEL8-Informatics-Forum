@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 class User_Controller extends Controller
 {
@@ -13,8 +14,8 @@ class User_Controller extends Controller
             'profile',
             [
                 "title" => $user->name,
-                "users" => $user,
-                "posts" => $user->posts()->orderBy('id', 'desc')->get()
+                "users" => $user->load(['posts', 'comments']),
+                "posts" => Post::where('user_id', $user->id)->with('user', 'category', 'comments')->orderBy('id', 'desc')->get(),
             ]
         );
     }

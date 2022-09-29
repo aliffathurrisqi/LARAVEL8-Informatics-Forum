@@ -17,31 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-        Post::create(
-            [
-                'user_id' => 1,
-                'judul' => "Lorem ipsum dolor sit amet consectetur.",
-                'body' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto numquam asperiores distinctio nam animi aut labore dolor aliquid voluptate quasi, quae inventore quis adipisci eligendi totam minus repudiandae corrupti delectus.",
-                'category_id' => 1
-            ]
-        );
-
-        Post::create(
-            [
-                'user_id' => 2,
-                'judul' => "Lorem ipsum dolor sit amet consectetur.",
-                'body' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, possimus.",
-                'category_id' => 3
-            ]
-        );
-
-        Post::create([
-            'user_id' => 3,
-            'judul' => "Lorem ipsum dolor sit amet consectetur.",
-            'body' => "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempora, possimus eligendi repudiandae similique labore quibusdam rem optio odio quis.",
-            'category_id' => 1
-        ]);
 
         Category::create(['name' => "Akademik"]);
         Category::create(['name' => "Keuangan"]);
@@ -79,20 +54,10 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        Comment::create(
-            [
-                'user_id' => 1,
-                'post_id' => 3,
-                'body' => "Lorem ipsum dolor sit amet."
-            ]
-        );
+        User::factory(8)->create();
 
-        Comment::create(
-            [
-                'user_id' => 3,
-                'post_id' => 3,
-                'body' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, similique!"
-            ]
-        );
+        Post::factory(25)->create();
+
+        Comment::factory(120)->create();
     }
 }
