@@ -1,6 +1,6 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand" href="/">
+        <a class="sidebar-brand text-center" href="/">
             <span class="align-middle">Informatics</span>
         </a>
 
@@ -11,13 +11,13 @@
 
             <li class="sidebar-item {{ $title === 'Home' ? 'active' : '' }}">
                 <a class="sidebar-link" href="/">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+                    <i class="bi bi-house-door fs-5 align-middle"></i><span class="align-middle">Home</span>
                 </a>
             </li>
 
             <li class="sidebar-item {{ $title === 'Kategori' ? 'active' : '' }}">
                 <a class="sidebar-link" href="/categories">
-                    <i class="align-middle" data-feather="user"></i> <span class="align-middle">Kategori</span>
+                    <i class="bi bi-tags fs-5 align-middle"></i><span class="align-middle">Kategori</span>
                 </a>
             </li>
 

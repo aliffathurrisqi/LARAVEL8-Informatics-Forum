@@ -3,6 +3,7 @@
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-12 p-0">
+                <?php $jml = count($posts); ?>
                 @foreach ($posts as $post)
                     <div class="card mb-2">
                         <div class="card-body h-100">
@@ -12,11 +13,11 @@
                                 <div class="flex-grow-1">
                                     {{-- <small class="float-end text-navy">30m ago</small> --}}
                                     <strong>
-                                        <a class="text-dark" href="/post/{{ $post['id'] }}">{{ $post['judul'] }}</a>
+                                        <a class="text-dark" href="/post/{{ $post->id }}">{{ $post->judul }}</a>
                                     </strong>
                                     <br>
                                     <small class="text-muted"><a href="#">{{ $post->user->name }}</a> - </small>
-                                    <small class="text-muted">{{ $post['created_at'] }} WIB - </small>
+                                    <small class="text-muted">{{ $post->created_at }} WIB - </small>
                                     <small><a href="/categories/{{ $post->category->id }}"
                                             class="text-primary">{{ $post->category->name }}</a></small>
 
@@ -29,12 +30,23 @@
                                         0 Like</a> --}}
                                     <a href="#" class="btn btn-sm btn-primary mt-1">
                                         <i class="bi bi-chat-dots"></i>
-                                        0 Tanggapan</a>
+                                        {{ count($post->comments) }} Tanggapan</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endforeach
+                <?php
+                    if($jml < 1){
+                ?>
+                <div class="card mb-2">
+                    <div class="card-body h-100">
+                        Data Kosong
+                    </div>
+                </div>
+                <?php
+                    }
+                ?>
             </div>
         </div>
 

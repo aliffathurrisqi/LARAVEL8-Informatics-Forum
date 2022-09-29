@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Database\Seeder;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -31,7 +32,7 @@ class DatabaseSeeder extends Seeder
                 'user_id' => 2,
                 'judul' => "Lorem ipsum dolor sit amet consectetur.",
                 'body' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, possimus.",
-                'category_id' => 1
+                'category_id' => 3
             ]
         );
 
@@ -67,6 +68,22 @@ class DatabaseSeeder extends Seeder
                 'username' => "5180411330",
                 'name' => "Ariga Fiandanu",
                 'password' => md5("5180411330")
+            ]
+        );
+
+        Comment::create(
+            [
+                'user_id' => 1,
+                'post_id' => 3,
+                'body' => "Lorem ipsum dolor sit amet."
+            ]
+        );
+
+        Comment::create(
+            [
+                'user_id' => 3,
+                'post_id' => 3,
+                'body' => "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, similique!"
             ]
         );
     }
