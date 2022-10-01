@@ -5,11 +5,8 @@
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
-                        @if (session()->has('old'))
-                            {{ session('old') }}
-                        @endif
                         @if (session()->has('error'))
-                            <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+                            <div class="alert alert-danger alert-dismissible fade show text-center fixed-top" role="alert">
                                 {{ session('error') }}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
@@ -41,7 +38,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Nama Lengkap</label>
-                                            <input class="form-control form-control-lg @error('name')is-invalid @enderror "
+                                            <input class="form-control form-control-lg @error('name')is-invalid @enderror"
                                                 type="text" name="name" placeholder="Masukkan nama" required
                                                 value="{{ old('name') }}" />
                                             @error('name')
@@ -53,7 +50,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
                                             <input
-                                                class="form-control form-control-lg @error('password')is-invalid @enderror "
+                                                class="form-control form-control-lg @error('password')is-invalid @enderror"
                                                 type="password" name="password" placeholder="Masukkan password" required />
                                             @error('password')
                                                 <div class="invalid-feedback">

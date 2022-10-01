@@ -18,8 +18,17 @@
                             <a class="btn btn-primary btn-sm" href="#"><i class="bi bi-chat-dots"></i>
                                 {{ count($users->comments) }} Tanggapan</a>
                         </div>
+                        @if ($users->username == auth()->user()->username)
+                            <hr class="my-0 mt-2" />
+                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="#">
+                                Edit Profile</a>
+                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="#">
+                                Buat Tulisan</a>
+                        @endif
                     </div>
                 </div>
+
+
             </div>
             <div class="col-md-8 p-1">
                 @if ($posts->count())

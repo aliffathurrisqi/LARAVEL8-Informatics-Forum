@@ -19,19 +19,23 @@ use App\Http\Controllers\Category_Controller;
 |
 */
 
-Route::get('/home', [Post_Controller::class, 'index']);
+Route::get('/home', [Post_Controller::class, 'index'])->middleware('auth');
 
-Route::get('/post/{post:id}', [Post_Controller::class, 'show']);
+Route::get('/post/{post:id}', [Post_Controller::class, 'show'])->middleware('auth');
 
-Route::get('/categories', [Category_Controller::class, 'index']);
+Route::get('/categories', [Category_Controller::class, 'index'])->middleware('auth');
 
-Route::get('/categories/{category:id}', [Category_Controller::class, 'show']);
+Route::get('/categories/{category:id}', [Category_Controller::class, 'show'])->middleware('auth');
 
-Route::get('/profile/{user:username}', [User_Controller::class, 'show']);
+Route::get('/profile/{user:username}', [User_Controller::class, 'show'])->middleware('auth');
 
 Route::get('/', [Login_Controller::class, 'default']);
 
-Route::get('/login', [Login_Controller::class, 'index']);
+Route::get('/login', [Login_Controller::class, 'index'])->name('login');
+
+Route::post('/login', [Login_Controller::class, 'authenticate']);
+
+Route::post('/logout', [Login_Controller::class, 'logout']);
 
 Route::get('/register', [Regist_Controller::class, 'index']);
 
