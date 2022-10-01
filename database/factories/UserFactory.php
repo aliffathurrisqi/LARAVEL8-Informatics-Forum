@@ -2,8 +2,9 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class UserFactory extends Factory
 {
@@ -17,7 +18,7 @@ class UserFactory extends Factory
         return [
             'username' => $this->faker->unique()->word(),
             'name' => $this->faker->name(),
-            'password' => md5($this->faker->name())
+            'password' => Hash::make($this->faker->name())
         ];
     }
 

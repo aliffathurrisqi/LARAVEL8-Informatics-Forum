@@ -5,6 +5,12 @@
             <div class="row vh-100">
                 <div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
                     <div class="d-table-cell align-middle">
+                        @if (session()->has('success'))
+                            <div class="alert alert-primary alert-dismissible fade show text-center fixed-top" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
 
                         <div class="card">
                             <div class="card-body">
@@ -41,7 +47,7 @@
                                         </div> --}}
                                         <div class="text-center mt-3">
                                             <a href="" class="btn btn-lg btn-primary w-100 mb-2">Masuk</a>
-                                            <a href="/regist" class="btn btn-lg btn-outline-primary w-100">Daftar</a>
+                                            <a href="/register" class="btn btn-lg btn-outline-primary w-100">Daftar</a>
                                             <!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
                                         </div>
                                     </form>

@@ -20,41 +20,9 @@ class DatabaseSeeder extends Seeder
 
         Category::create(['name' => "Akademik"]);
         Category::create(['name' => "Keuangan"]);
-        Category::create(['name' => "Wisuda"]);
+        Category::create(['name' => "Wisuda"]);;
 
-        User::create(
-            [
-                'username' => "5180411327",
-                'name' => "Aliffathur Risqi Hidayat",
-                'password' => md5("5180411327")
-            ]
-        );
-
-        User::create(
-            [
-                'username' => "5180411095",
-                'name' => "Khoirun Nisa",
-                'password' => md5("5180411095")
-            ]
-        );
-
-        User::create(
-            [
-                'username' => "5180411330",
-                'name' => "Ariga Fiandanu",
-                'password' => md5("5180411330")
-            ]
-        );
-
-        User::create(
-            [
-                'username' => "5180411329",
-                'name' => "Aprilyani Sanjaya",
-                'password' => md5("5180411329")
-            ]
-        );
-
-        User::factory(8)->create();
+        User::factory(10)->create();
 
         Post::factory(25)->create();
 

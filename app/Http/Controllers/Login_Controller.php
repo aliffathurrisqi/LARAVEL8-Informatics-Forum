@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class Login_Controller extends Controller
 {
+
+    public function default()
+    {
+        return redirect('/login');
+    }
+
     public function index()
     {
         return view(

@@ -29,6 +29,10 @@ Route::get('/categories/{category:id}', [Category_Controller::class, 'show']);
 
 Route::get('/profile/{user:username}', [User_Controller::class, 'show']);
 
+Route::get('/', [Login_Controller::class, 'default']);
+
 Route::get('/login', [Login_Controller::class, 'index']);
 
-Route::get('/regist', [Regist_Controller::class, 'index']);
+Route::get('/register', [Regist_Controller::class, 'index']);
+
+Route::post('/register', [Regist_Controller::class, 'store']);
