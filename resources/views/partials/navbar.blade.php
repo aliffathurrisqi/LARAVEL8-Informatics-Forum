@@ -5,7 +5,7 @@
     <div class="col-6 text-start">
         <ul class="navbar-nav">
             <li class="nav-item d-inline-block d-sm-none">
-                <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/">
+                <a class="nav-link {{ $title === 'Home' ? 'active' : '' }}" href="/home">
                     {{-- <i class="bi bi-house-door fs-5 align-middle"></i>  --}}
                     <span class="align-middle">Home</span>
                 </a>

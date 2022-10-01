@@ -1,6 +1,6 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
-        <a class="sidebar-brand text-center" href="/">
+        <a class="sidebar-brand text-center" href="/home">
             <span class="align-middle">Informatics</span>
         </a>
 
@@ -10,7 +10,7 @@
             </li>
 
             <li class="sidebar-item {{ $title === 'Home' ? 'active' : '' }}">
-                <a class="sidebar-link" href="/">
+                <a class="sidebar-link" href="/home">
                     <i class="bi bi-house-door fs-5 align-middle"></i><span class="align-middle">Home</span>
                 </a>
             </li>

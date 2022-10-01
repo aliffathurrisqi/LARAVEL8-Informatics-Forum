@@ -49,6 +49,9 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="d-flex justify-content-center mt-3">
+                        {{ $posts->links() }}
+                    </div>
                 @else
                     <div class="card mb-2">
                         <div class="card-body h-100">
@@ -56,6 +59,7 @@
                         </div>
                     </div>
                 @endif
+
             </div>
         </div>
 

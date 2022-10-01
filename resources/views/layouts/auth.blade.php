@@ -22,18 +22,7 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        @include('partials.sidebar')
-        <div class="main">
-            @include('partials.navbar')
-            <main class="content">
-                @yield('contents')
-            </main>
-            <footer class="footer">
-                @include('partials.footer')
-            </footer>
-        </div>
-    </div>
+    @yield('body')
     <script src="/js/app.js"></script>
 </body>
 

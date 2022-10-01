@@ -3,7 +3,7 @@
     <div class="container-fluid p-0">
         <div class="row">
             <div class="col-md-12 p-0">
-                <form action="/">
+                <form action="/home">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" name="search" placeholder="Cari tulisan..."
                             value={{ request('search') }}>
@@ -46,6 +46,9 @@
                             </div>
                         </div>
                     @endforeach
+                    <div class="d-flex justify-content-center mt-3">
+                        {{ $posts->links() }}
+                    </div>
                 @else
                     <div class="card mb-2">
                         <div class="card-body h-100">
@@ -56,6 +59,5 @@
 
             </div>
         </div>
-
     </div>
 @endsection

@@ -21,22 +21,12 @@ class Category_Controller extends Controller
 
     public function show(Category $category)
     {
-        $posts = Post::where('category_id', $category->id)->with('user', 'category', 'comments')->orderBy('id', 'desc');
-
-        if (request('search')) {
-            $posts = Post::where('category_id', $category->id)
-                ->where('judul', 'like', '%' . request('search') . '%')
-                ->orwhere('body', 'like', '%' . request('search') . '%')
-                ->with('user', 'category', 'comments')
-                ->orderBy('id', 'desc');
-        }
 
         return view(
             'find_category',
             [
                 "title" => $category->name,
-                "posts" => $posts->get(),
-                // 'posts' => $category->posts->load('user', 'category', 'comments'),
+                "posts" =>  Post::where('category_id', $category->id)->filter(request(['search']))->with('user', 'category', 'comments')->orderBy('id', 'desc')->paginate(10),
                 "category" => $category
             ]
         );
