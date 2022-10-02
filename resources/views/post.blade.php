@@ -22,7 +22,7 @@
                                         class="text-primary">{{ $posts->category->name }}</a></small>
 
                                 <div class="text-muted mt-1 text-justify">
-                                    {{ $posts['body'] }}
+                                    {!! $posts->body !!}
                                 </div>
 
                                 {{-- <a href="#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm"
@@ -37,10 +37,16 @@
                 <div class="mb-2">Tanggapan</div>
                 <div class="card mb-1">
                     <div class="card-body h-100">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Tulis tanggapan....">
-                            <button class="btn btn-primary" type="button">Kirim</button>
-                        </div>
+                        <form action="/post/{{ $posts->id }}" method="POST">
+                            @csrf
+                            <div>
+                                <input type="hidden" name="post_id" value="{{ $posts->id }}">
+                                <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                                <input id="body" type="hidden" name="body">
+                                <trix-editor input="body"></trix-editor>
+                            </div>
+                            <div class="mt-2 text-end"><button class="btn btn-primary" type="submit">Kirim</button></div>
+                        </form>
                     </div>
                 </div>
                 @foreach ($comments as $comment)
@@ -56,7 +62,7 @@
                                     </small>
                                     <small class="text-muted">{{ $comment->created_at->format('d M Y H:i') }} WIB</small>
                                     <div class="text-muted mt-1 text-justify">
-                                        {{ $comment->body }}
+                                        {!! $comment->body !!}
                                     </div>
 
                                     {{-- <a href="#" class="btn btn-sm btn-danger mt-1"><i class="feather-sm"

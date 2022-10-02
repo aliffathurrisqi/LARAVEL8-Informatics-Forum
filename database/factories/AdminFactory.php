@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class CommentFactory extends Factory
+class AdminFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,9 +14,7 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'user_id' => mt_rand(1, 10),
-            'post_id' => mt_rand(1, 25),
-            'body' => $this->faker->sentence(mt_rand(5, 8))
+            //
         ];
     }
 }

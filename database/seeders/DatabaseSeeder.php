@@ -2,11 +2,13 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
-use Illuminate\Database\Seeder;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Comment;
+use App\Models\Category;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,7 +22,15 @@ class DatabaseSeeder extends Seeder
 
         Category::create(['name' => "Akademik"]);
         Category::create(['name' => "Keuangan"]);
-        Category::create(['name' => "Wisuda"]);;
+        Category::create(['name' => "Wisuda"]);
+
+        Admin::create(
+            [
+                'username' => "admin",
+                'name' => "Aliffathur Risqi Hidayat",
+                'password' => Hash::make('31032000Alif')
+            ]
+        );
 
         User::factory(10)->create();
 

@@ -19,4 +19,15 @@ class User_Controller extends Controller
             ]
         );
     }
+
+    public function edit(User $user)
+    {
+        return view(
+            'edit_profile',
+            [
+                "title" => "Edit Profile",
+                "users" => auth()->user()
+            ]
+        );
+    }
 }

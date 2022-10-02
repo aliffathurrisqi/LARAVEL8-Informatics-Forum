@@ -20,9 +20,9 @@
                         </div>
                         @if ($users->username == auth()->user()->username)
                             <hr class="my-0 mt-2" />
-                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="#">
+                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="/profile/user/edit">
                                 Edit Profile</a>
-                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="#">
+                            <a class="btn btn-outline-primary btn-sm w-100 mt-2" href="/user/create/post">
                                 Buat Tulisan</a>
                         @endif
                     </div>
@@ -51,7 +51,7 @@
                                                 class="text-primary">{{ $post->category->name }}</a></small>
 
                                         <div class="text-muted mt-1 text-justify">
-                                            {{ $post['body'] }}
+                                            {!! $post->body !!}
                                         </div>
 
                                         {{-- <a href="#" class="btn btn-sm btn-outline-danger mt-1 me-1">
@@ -66,13 +66,21 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="card mb-2">
-                        <div class="card-body h-100">
-                            Pengguna belum membuat tulisan
+                    @if ($users->username == auth()->user()->username)
+                        <div class="card mb-2">
+                            <div class="card-body h-100">
+                                <a class="btn btn-primary btn-sm w-100 mt-2" href="/user/create/post">
+                                    Buat Tulisan</a>
+                            </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="card mb-2">
+                            <div class="card-body h-100">
+                                Pengguna belum membuat tulisan
+                            </div>
+                        </div>
+                    @endif
                 @endif
-
             </div>
         </div>
 

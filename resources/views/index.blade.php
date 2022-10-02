@@ -32,7 +32,7 @@
                                                 class="text-primary">{{ $post->category->name }}</a></small>
 
                                         <div class="text-muted mt-1 text-justify">
-                                            {{ $post['body'] }}
+                                            {!! $post->body !!}
                                         </div>
 
                                         {{-- <a href="#" class="btn btn-sm btn-outline-danger mt-1 me-1">

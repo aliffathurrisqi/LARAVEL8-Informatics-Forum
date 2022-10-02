@@ -27,12 +27,13 @@
                                 <div class="m-sm-4">
                                     <div class="text-center">
                                         <div class="text-center mt-4">
-                                            <h3 class="h2">Forum Diskusi Mahasiswa Informatika</h3>
+                                            <h3>Forum Diskusi Mahasiswa Informatika</h3>
+                                            <h5 class="text-muted">Universitas Teknologi Yogyakarta</h5>
                                         </div>
-                                        <img src="https://api-frontend.kemdikbud.go.id/v2/detail_pt_logo/ODcyMEY5MkMtREQyMi00RDU3LUI3MEItNTZDNzJFNUVGREMw"
-                                            class="img-fluid rounded-circle mb-2" width="132" height="132" />
+                                        <img src="/img/logos/UTY.png" class="img-fluid rounded-circle mb-2" width="132"
+                                            height="132" />
                                     </div>
-                                    <form action="/login" method="POST">
+                                    <form action="/login/auth" method="POST">
                                         @csrf
                                         <div class="mb-3">
                                             <label class="form-label">Username</label>
@@ -48,17 +49,34 @@
                                         </div>
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
-                                            <input
-                                                class="form-control form-control-lg @error('password')is-invalid @enderror"
-                                                type="password" name="password" placeholder="Masukkan password" required />
-                                            @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                            @enderror
-                                            <small>
+                                            <div class="input-group mb-3">
+                                                @if (request()->look)
+                                                    <input
+                                                        class="form-control form-control-lg @error('password')is-invalid @enderror"
+                                                        type="text" name="password" placeholder="Masukkan password"
+                                                        required />
+
+                                                    <button class="btn btn-outline-secondary" name="look" type="button"
+                                                        value="false"><i class="bi bi-eye-slash"></i></button>
+                                                @else
+                                                    <input
+                                                        class="form-control form-control-lg @error('password')is-invalid @enderror"
+                                                        type="password" name="password" placeholder="Masukkan password"
+                                                        required />
+
+                                                    <button class="btn btn-outline-secondary" name="look" type="button"
+                                                        value="true"><i class="bi bi-eye"></i>
+                                                    </button>
+                                                @endif
+                                                @error('password')
+                                                    <div class="invalid-feedback">
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                                {{-- <small>
                                                 <a href="">lupa password?</a>
-                                            </small>
+                                            </small> --}}
+                                            </div>
                                         </div>
                                         {{-- <div>
                                             <label class="form-check">

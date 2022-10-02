@@ -12,28 +12,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="/img/icons/icon-48x48.png" />
     <link rel="canonical" href="https://demo-basic.adminkit.io/pages-profile.html" />
-    <title>Informatics Forum | {{ $title }}</title>
+    <title>Admin | {{ $title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="/plugin/tix_editor/trix.css">
-    <script type="text/javascript" src="/plugin/tix_editor/trix.js"></script>
-
-    <style>
-        trix-toolbar [data-trix-button-group="file-tools"] {
-            display: none;
-        }
-    </style>
 </head>
 
 <body>
     <div class="wrapper">
-        @include('partials.sidebar')
+        @include('partials.admin_sidebar')
         <div class="main">
-            @include('partials.navbar')
+            @include('partials.admin_navbar')
             <main class="content">
                 @yield('contents')
             </main>
