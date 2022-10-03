@@ -24,11 +24,12 @@ class DatabaseSeeder extends Seeder
         Category::create(['name' => "Keuangan"]);
         Category::create(['name' => "Wisuda"]);
 
-        Admin::create(
+        User::create(
             [
                 'username' => "admin",
                 'name' => "Aliffathur Risqi Hidayat",
-                'password' => Hash::make('31032000Alif')
+                'password' => Hash::make('31032000Alif'),
+                'isAdmin' => true
             ]
         );
 

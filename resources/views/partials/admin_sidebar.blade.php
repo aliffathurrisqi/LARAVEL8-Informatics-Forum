@@ -21,6 +21,14 @@
                 </a>
             </li>
 
+            <li class="sidebar-header">
+                Forum
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="/home">
+                    <i class="bi bi-people fs-5 align-middle"></i><span class="align-middle">Go Forum</span>
+                </a>
+            </li>
         </ul>
 
         {{-- <div class="sidebar-cta">

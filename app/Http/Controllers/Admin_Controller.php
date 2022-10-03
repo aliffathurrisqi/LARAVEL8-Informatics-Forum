@@ -20,7 +20,8 @@ class Admin_Controller extends Controller
             [
                 "title" => "Dashboard",
                 "posts" => Post::all(),
-                "users" => User::all()
+                "users" => User::all(),
+                "categories" => Category::all()
             ]
         );
     }

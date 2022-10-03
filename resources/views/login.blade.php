@@ -50,24 +50,15 @@
                                         <div class="mb-3">
                                             <label class="form-label">Password</label>
                                             <div class="input-group mb-3">
-                                                @if (request()->look)
-                                                    <input
-                                                        class="form-control form-control-lg @error('password')is-invalid @enderror"
-                                                        type="text" name="password" placeholder="Masukkan password"
-                                                        required />
+                                                <input
+                                                    class="form-control form-control-lg @error('password')is-invalid @enderror"
+                                                    type="password" name="password" id="password_form"
+                                                    placeholder="Masukkan password" required />
 
-                                                    <button class="btn btn-outline-secondary" name="look" type="button"
-                                                        value="false"><i class="bi bi-eye-slash"></i></button>
-                                                @else
-                                                    <input
-                                                        class="form-control form-control-lg @error('password')is-invalid @enderror"
-                                                        type="password" name="password" placeholder="Masukkan password"
-                                                        required />
-
-                                                    <button class="btn btn-outline-secondary" name="look" type="button"
-                                                        value="true"><i class="bi bi-eye"></i>
-                                                    </button>
-                                                @endif
+                                                <button id="btnShow" class="btn btn-outline-secondary border-1"
+                                                    name="look" type="button" value="true" onclick="showPassword()"><i
+                                                        id="btnIcon" class="bi bi-eye"></i>
+                                                </button>
                                                 @error('password')
                                                     <div class="invalid-feedback">
                                                         {{ $message }}
@@ -104,4 +95,17 @@
     </main>
 
     <script src="js/app.js"></script>
+    <script>
+        function showPassword() {
+            var icon = document.getElementById('btnIcon');
+
+            if (icon.className == "bi bi-eye") {
+                document.getElementById('password_form').setAttribute("type", "text");
+                icon.className = "bi bi-eye-slash";
+            } else {
+                document.getElementById('password_form').setAttribute("type", "password");
+                icon.className = "bi bi-eye";
+            }
+        }
+    </script>
 @endsection

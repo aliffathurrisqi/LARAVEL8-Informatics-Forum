@@ -31,7 +31,12 @@ class Regist_Controller extends Controller
         if ($validatedData['password'] == $validatedData['konfirmasi']) {
             $validatedData['password'] = Hash::make($validatedData['password']);
 
-            User::create($validatedData);
+            User::create([
+                'username' => $validatedData["username"],
+                'name' => $validatedData["name"],
+                'password' => $validatedData["password"],
+                'isAdmin' => false,
+            ]);
 
             return redirect('/login')->with("success", "Registrasi akun berhasil!");
         } else {

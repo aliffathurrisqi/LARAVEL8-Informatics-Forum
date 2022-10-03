@@ -33,7 +33,12 @@ class Login_Controller extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+
+            if (auth()->user()->isAdmin == true) {
+                return redirect()->intended('/admin');
+            } else {
+                return redirect()->intended('/home');
+            }
         }
 
         return back()->with('loginError', "Login gagal!");

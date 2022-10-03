@@ -18,7 +18,8 @@ class UserFactory extends Factory
         return [
             'username' => $this->faker->unique()->word(),
             'name' => $this->faker->name(),
-            'password' => Hash::make($this->faker->name())
+            'password' => Hash::make($this->faker->name()),
+            'isAdmin' => false
         ];
     }
 

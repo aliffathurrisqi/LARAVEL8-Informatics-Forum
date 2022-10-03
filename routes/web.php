@@ -54,12 +54,12 @@ Route::post('/register', [Regist_Controller::class, 'store']);
 
 // ADMIN ROUTES
 
-Route::get('/admin', [Admin_Controller::class, 'index']);
+Route::get('/admin', [Admin_Controller::class, 'index'])->middleware('admin');
 
-Route::get('/admin/categories', [Admin_Controller::class, 'categories']);
+Route::get('/admin/categories', [Admin_Controller::class, 'categories'])->middleware('admin');
 
-Route::post('/admin/categories/add', [Admin_Controller::class, 'add_categories']);
+Route::post('/admin/categories/add', [Admin_Controller::class, 'add_categories'])->middleware('admin');
 
-Route::get('/admin/categories/edit', [Admin_Controller::class, 'edit_categories']);
+Route::get('/admin/categories/edit', [Admin_Controller::class, 'edit_categories'])->middleware('admin');
 
-Route::get('/admin/categories/delete', [Admin_Controller::class, 'delete_categories']);
+Route::get('/admin/categories/delete', [Admin_Controller::class, 'delete_categories'])->middleware('admin');

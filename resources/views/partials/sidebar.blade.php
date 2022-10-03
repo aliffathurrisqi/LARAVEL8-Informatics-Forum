@@ -21,6 +21,17 @@
                 </a>
             </li>
 
+            @if (auth()->user()->isAdmin)
+                <li class="sidebar-header">
+                    Admin Page
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="/admin">
+                        <i class="bi bi-arrow-left-circle fs-5 align-middle"></i><span class="align-middle">Back to
+                            Admin Page</span>
+                    </a>
+                </li>
+            @endif
         </ul>
 
         {{-- <div class="sidebar-cta">
